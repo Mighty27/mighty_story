@@ -1,0 +1,23 @@
+[
+    {
+        "sheetName": "Sheet 1",
+        "items": [
+            { "id": "1", "judul": "Judul 1", "sampul": "https://via.placeholder.com/150" },
+            { "id": "2", "judul": "Judul 2", "sampul": "https://via.placeholder.com/150" }
+        ]
+    },
+    {
+        "sheetName": "Sheet 2",
+        "items": [
+            { "id": "1", "chapter_1": "Chapter 1A", "chapter_2": "Chapter 2A", "chapter_3": "Chapter 3A" },
+            { "id": "2", "chapter_1": "Chapter 1B", "chapter_2": "Chapter 2B", "chapter_3": "Chapter 3B" }
+        ]
+    },
+    {
+        "sheetName": "Sheet 3",
+        "items": [
+            { "id": "1", "img_1": "https://via.placeholder.com/150", "img_2": "https://via.placeholder.com/150", "img_3": "https://via.placeholder.com/150" },
+            { "id": "2", "img_1": "https://via.placeholder.com/150", "img_2": "https://via.placeholder.com/150", "img_3": "https://via.placeholder.com/150" }
+        ]
+    }
+]
