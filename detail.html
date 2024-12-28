@@ -9,6 +9,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div id="loadingScreen">
+        <div class="spinner-border text-primary hidden" role="status">
+            <span class="visually-hidden">
+                Loading....
+            </span>
+        </div>
+    </div>
+
     <header class="align-items-center p-3 mb-3">
         <h3 id="bookTitle">Book Details</h3>
     </header>
@@ -87,6 +95,8 @@
                 }
             } catch (error) {
                 console.error("Error fetching data:", error);
+            } finally {
+                hideLoadingScreen();
             }
         }
 
@@ -156,8 +166,9 @@
                 carouselContent.innerHTML += endStorySlide;
             } else {
                 console.error("Book not found");
-            }
+
         }
+    }
 
         // Function to Start Reading (Hide Cover and Show Story)
         function startReading() {
@@ -189,9 +200,15 @@
 
         // Function to End Story
         function closeWindow() {
-  var win = window.open("about:blank", "_self");
-  win.close();
-}
+            var win = window.open("about:blank", "_self");
+            win.close();
+        }       
+
+        //  Hide Loading Screen
+        function hideLoadingScreen() {
+            const loadingScreen = document.getElementById("loadingScreen");
+            loadingScreen.style.display = "none";
+        }
 
         // Load Data on Page Load
         document.addEventListener("DOMContentLoaded", fetchData);

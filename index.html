@@ -9,6 +9,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div id="loadingScreen">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">
+                Loading....
+            </span>
+        </div>
+    </div>
+
     <header class="d-flex align-items-center justify-content-between sticky-top">
         <h3>Mighty Book</h3>
         <form>
@@ -28,7 +36,7 @@
         const sheetName = "cover";
 
         let allBooks = []; // Store all books data for searching
-
+        
         // Fetch Data from Google Sheets
         async function fetchData() {
             const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`;
@@ -49,6 +57,8 @@
             } catch (error) {
                 console.error("Error fetching data:", error);
                 document.getElementById("cardContainer").innerHTML = "<p>Failed to load data.</p>";
+            } finally {
+                hideLoadingScreen();
             }
         }
 
@@ -89,6 +99,12 @@
 
         // Add Event Listener for Input
         document.getElementById("bookSearch").addEventListener("input", searchBook);
+
+        // Hide Loading Screen
+        function hideLoadingScreen() {
+            const loadingScreen = document.getElementById("loadingScreen");
+            loadingScreen.style.display = "none";
+        }
 
         // Load Data on Page Load
         document.addEventListener("DOMContentLoaded", fetchData);
