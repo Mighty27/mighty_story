@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
 *, html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Lato", serif;
 }
 
 body {
@@ -62,16 +65,16 @@ header {
   height: 80vh;
 }
 
+#coverTitle {
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
 @media (max-width: 767px) {
-  html {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
   
   .container-fluid {
-      height: 80vh;
-      width: 60vh;
+      height: 100vh;
+      width: auto;
   }
       
   .card-body {
@@ -79,22 +82,19 @@ header {
     align-items: center;
   }
 
-  .card-img-top {
-    width: 360px !important;
+  .img {
+    width: 100% !important;
+    height: 100% !important;
   }
   
 }
 
 @media (max-width: 576px) {
-  html {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
+
   
   .container-fluid {
-      height: 80vh;
-      width: 100vh;
+      height: 80vh!important;
+      width: auto!important;
   }
      
   .card-body {
@@ -102,11 +102,17 @@ header {
     align-items: center;
     justify-content: center;
     justify-items: center;
-    width: 360px !important;
+    width: 360px!important;
   }
 
   .img{
-    width: 360px !important;
+    width: 100%!important;
+    height: 100%!important;
+    position: relative;
+  }
+
+  .overflow-y-auto {
+    width: 480px!important;
   }
   
 }

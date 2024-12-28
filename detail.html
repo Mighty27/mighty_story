@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="d-flex justify-content-between align-items-center p-3">
+    <header class="align-items-center p-3 mb-3">
         <h3 id="bookTitle">Book Details</h3>
     </header>
 
@@ -52,7 +52,7 @@
 </div>
     <!-- Story Section -->
           
-            <div class="container d-flex flex-column justify-content-center align-items-center text-center pt-3">
+            <div class="container d-flex flex-column justify-content-center align-items-center text-center pt-3 mt-3">
                 <div id="carouselExample" class="carousel slide" data-bs-interval="false">
                     <div class="carousel-inner" id="carouselContent">
                         <!-- Dynamic Content -->
@@ -107,6 +107,7 @@
 
                 // Update Cover Section
                 document.querySelector('#coverTitle').textContent = title;
+                // document.querySelector('#bookTitle').textContent = title;
                 document.querySelector('#coverImage').src = coverImageUrl || 'https://via.placeholder.com/300';
                 document.title = title;
 
@@ -117,6 +118,11 @@
 
                     const imgTag = imgUrl ? `<img src="${imgUrl}" class="img" style="width: 420px; height: 260px;" alt="Slide">` : "";
                     const storyTag = storyText ? `<p class="card-text">${storyText}</p>` : "";
+
+                    console.log(bookTitle.textContent)
+                    console.log(title)
+                
+                    
 
                     // Generate slide content
                     const carouselItem = `
@@ -132,6 +138,7 @@
                             </div>
                         </div>`;
                     carouselContent.innerHTML += carouselItem;
+
                 }
 
                 // Add End Story Button as the Final Slide
@@ -139,8 +146,10 @@
                     <div class="carousel-item">
                         <div class="card">
                             <div class="card-body text-center">
-                                <h3>Thank you for reading!</h3>
-                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">End Story</button>
+                                <div class="container">
+                                    <h3>Thank you for reading!</h3>
+                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">End Story</button>
+                                </div>
                             </div>
                         </div>
                     </div>`;
@@ -152,8 +161,10 @@
 
         // Function to Start Reading (Hide Cover and Show Story)
         function startReading() {
+            document.querySelector('#bookTitle').textContent = document.querySelector('#coverTitle').textContent;
             document.getElementById('coverSection').classList.add('d-none');
             document.getElementById('storySection').classList.remove('d-none');
+            
         }
 
         // Function to Go to Next Slide
